@@ -1,15 +1,15 @@
-const express = require("express");
-
-const {
+import express from "express";
+import {
   CUNDINAMARCA,
   BOLIVAR,
   ATLANTICO,
   MAGDALENA,
   SINCELEJO,
   ERROR,
-} = require("../constants.js");
-const checkCity = require("../utils/checkCity.js");
-const normalizeString = require("../utils/normalizeString.js");
+} from "../constants.js";
+
+import checkCity from "../utils/checkCity.js";
+import normalizeString from "../utils/normalizeString.js";
 
 const router = express.Router();
 
@@ -30,5 +30,4 @@ router.get("/:city", (req, res) => {
     res.status(404).json(ERROR);
   }
 });
-
-module.exports = router;
+export default router;

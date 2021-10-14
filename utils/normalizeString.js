@@ -5,4 +5,4 @@ const normalizeString = (s) => {
     .toLowerCase();
 };
 
-module.exports = normalizeString;
+export default normalizeString;
