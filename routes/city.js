@@ -17,17 +17,20 @@ router.get("/:city", (req, res) => {
   const cityParam = normalizeString(req.params.city);
 
   if (checkCity("bogota", cityParam)) {
-    res.json(CUNDINAMARCA);
+    res.json(CUNDINAMARCA(req.params.city));
   } else if (checkCity("cartagena", cityParam)) {
-    res.json(BOLIVAR);
+    res.json(BOLIVAR(req.params.city));
   } else if (checkCity("barranquilla", cityParam)) {
-    res.json(ATLANTICO);
+    res.json(ATLANTICO(req.params.city));
   } else if (checkCity("santa marta", cityParam)) {
-    res.json(MAGDALENA);
+    res.json(MAGDALENA(req.params.city));
   } else if (checkCity("sincelejo", cityParam)) {
     res.json(SINCELEJO);
   } else {
-    res.json({ departamento: req.params.city });
+    res.json({
+      departamentoNormalizado: req.params.city,
+      departmentoNoNormalizado: req.params.city,
+    });
   }
 });
 export default router;
