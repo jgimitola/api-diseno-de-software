@@ -27,7 +27,7 @@ router.get("/:city", (req, res) => {
   } else if (checkCity("sincelejo", cityParam)) {
     res.send(SINCELEJO);
   } else {
-    res.send(req.params.city);
+    res.send({ departamento: req.params.city });
   }
 });
 export default router;
