@@ -17,17 +17,17 @@ router.get("/:city", (req, res) => {
   const cityParam = normalizeString(req.params.city);
 
   if (checkCity("bogota", cityParam)) {
-    res.json(CUNDINAMARCA);
+    res.send(CUNDINAMARCA);
   } else if (checkCity("cartagena", cityParam)) {
-    res.json(BOLIVAR);
+    res.send(BOLIVAR);
   } else if (checkCity("barranquilla", cityParam)) {
-    res.json(ATLANTICO);
+    res.send(ATLANTICO);
   } else if (checkCity("santa marta", cityParam)) {
-    res.json(MAGDALENA);
+    res.send(MAGDALENA);
   } else if (checkCity("sincelejo", cityParam)) {
-    res.json(SINCELEJO);
+    res.send(SINCELEJO);
   } else {
-    res.status(404).json(ERROR);
+    res.send(req.params.city);
   }
 });
 export default router;
